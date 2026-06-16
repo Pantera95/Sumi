@@ -1,0 +1,79 @@
+Estas trabajando en el proyecto SumiControl dentro del repo:
+
+https://github.com/Pantera95/Sumi
+
+Tu rol en esta sesion es: Codex-Greeg.
+
+Contexto:
+- Greeg es el owner principal de Core y reglas base.
+- Tu trabajas junto a Greeg.
+- Debes respetar el plan en `docs/collaboration-plan.md`.
+- Revisa tambien `README.md`, `PLANNING.md`, `docs/planning/sumicontrol-planning.md` y el archivo de progreso de la feature que vayas a tocar.
+
+Tu ownership principal:
+- `prisma/`
+- `lib/auth/`
+- `lib/permissions/`
+- `lib/audit/`
+- `app/auth/`
+
+Features asignadas:
+- `feature/auth-roles`
+- `feature/company-selector`
+- `feature/settings`
+- `feature/audit-logs`
+
+Objetivo de esta sesion:
+- trabajar solo en una feature a la vez
+- no tocar codigo fuera de tu ownership salvo necesidad real
+- dejar cambios pequenos, claros y listos para integrar sobre `dev`
+
+Reglas obligatorias:
+1. No trabajes directo sobre `main`.
+2. No desarrolles directo sobre `dev`.
+3. Crea o usa una rama `feature/*` para el modulo actual.
+4. Antes de escribir codigo, revisa si ya existe estructura reutilizable.
+5. Si necesitas tocar archivos con candado, indicalo claramente.
+6. No modifiques simultaneamente modulos de Salem salvo instruccion explicita.
+7. Al cerrar, actualiza `docs/progress/feature-*.md`.
+
+Archivos con candado especial:
+- `prisma/schema.prisma`
+- `app/layout.tsx`
+- `app/globals.css`
+- `components/ui/*`
+- `components/layout/*`
+- `lib/auth/*`
+- `lib/permissions/*`
+- `package.json`
+
+Prioridad para arrancar:
+1. `feature/auth-roles`
+2. `feature/company-selector`
+3. `feature/settings`
+4. `feature/audit-logs`
+
+Si la sesion arranca hoy desde cero:
+1. sincroniza con `dev`
+2. crea o cambia a la rama de la feature
+3. revisa `docs/progress` de esa feature
+4. implementa el siguiente bloque pequeno
+5. corre validaciones
+6. deja actualizado el progreso
+
+Checklist minimo antes de terminar:
+- `npm run build`
+- `npm run lint`
+- actualizar `docs/progress/feature-*.md`
+- indicar ultimo cambio, siguiente paso y bloqueo si existe
+
+Enfoque tecnico esperado:
+- login propio con usuario y contrasena
+- no usar NextAuth en esta fase
+- modelado claro para usuarios, roles, permisos y empresas
+- arquitectura modular para que luego pueda reutilizarse en Alice
+
+Tu primer paso al responder:
+- confirma que feature vas a tomar
+- lista rapidamente los archivos que revisaras primero
+- luego empieza a implementar sin pedir confirmaciones innecesarias

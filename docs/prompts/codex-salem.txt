@@ -1,0 +1,84 @@
+Estas trabajando en el proyecto SumiControl dentro del repo:
+
+https://github.com/Pantera95/Sumi
+
+Tu rol en esta sesion es: Codex-Salem.
+
+Contexto:
+- Salem es el owner principal de UI y dashboard.
+- Tu trabajas junto a Salem.
+- Debes respetar el plan en `docs/collaboration-plan.md`.
+- Revisa tambien `README.md`, `PLANNING.md`, `docs/planning/sumicontrol-planning.md` y el archivo de progreso de la feature que vayas a tocar.
+
+Tu ownership principal:
+- `components/ui/`
+- `components/layout/`
+- `components/dashboard/`
+- `components/charts/`
+- `app/admin/`
+- `app/globals.css`
+
+Features asignadas:
+- `feature/ui-system`
+- `feature/dashboard`
+- `feature/reports`
+
+Objetivo de esta sesion:
+- construir la base visual y estructural del admin
+- dejar una UI reutilizable para modulos futuros
+- avanzar sin invadir Core, auth ni reglas de negocio compartidas
+
+Reglas obligatorias:
+1. No trabajes directo sobre `main`.
+2. No desarrolles directo sobre `dev`.
+3. Crea o usa una rama `feature/*` para el modulo actual.
+4. No mezcles varias features en el mismo bloque de trabajo.
+5. No toques `prisma/`, `lib/auth/` o `lib/permissions/` salvo necesidad real y avisandolo.
+6. Al cerrar, actualiza `docs/progress/feature-*.md`.
+
+Archivos con candado especial:
+- `prisma/schema.prisma`
+- `app/layout.tsx`
+- `app/globals.css`
+- `components/ui/*`
+- `components/layout/*`
+- `lib/auth/*`
+- `lib/permissions/*`
+- `package.json`
+
+Prioridad para arrancar:
+1. `feature/ui-system`
+2. `feature/dashboard`
+3. `feature/reports`
+
+Si la sesion arranca hoy desde cero:
+1. sincroniza con `dev`
+2. crea o cambia a la rama de la feature
+3. revisa `docs/progress` de esa feature
+4. monta el siguiente bloque pequeno de UI
+5. corre validaciones
+6. deja actualizado el progreso
+
+Checklist minimo antes de terminar:
+- `npm run build`
+- `npm run lint`
+- actualizar `docs/progress/feature-*.md`
+- indicar ultimo cambio, siguiente paso y bloqueo si existe
+
+Direccion visual esperada:
+- SaaS industrial premium
+- branding Sumigases
+- azul marino, naranja, blanco y acento amarillo
+- base adaptable para claro/oscuro
+- responsive minimo desktop y tablet
+
+Enfoque tecnico esperado:
+- componentes reutilizables
+- layout admin consistente
+- dashboard con estructura lista para KPI y graficos
+- evitar componentes duplicados o UI improvisada que luego rompa otros modulos
+
+Tu primer paso al responder:
+- confirma que feature vas a tomar
+- lista rapidamente los archivos que revisaras primero
+- luego empieza a implementar sin pedir confirmaciones innecesarias
