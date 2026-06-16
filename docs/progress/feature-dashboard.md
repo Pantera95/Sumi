@@ -19,9 +19,15 @@ Definición lista. Implementación pendiente (owner: Salem/Codex-Salem).
 ## Qué falta
 
 - Acordar el tipo `DashboardData` y el loader mock (Claude-Greeg + Codex-Salem).
-- Preparar mock seed derivado de matrices 2024 (Claude-Greeg) — requiere acceso a los Excel o cifras de referencia.
+- Extender `Trend` a multi-serie para los charts "vs" (detalle en docs/data/dashboard-mock-2024.md).
 - Montar layout del dashboard contra el mock (Codex-Salem).
 - Conectar selector de empresa cuando exista (feature/company-selector).
+- Definir mock de Sudematin (no hay data real; propuesto factor 0,35× etiquetado).
+
+## Data mock
+
+- Listo: `docs/data/dashboard-mock-2024.md` con cifras REALES de Sumigases 2024 (ventas $310.865,
+  utilidad neta $106.826, series mensuales, factura vs NE) + objeto `dashboardMock2024` para pegar.
 
 ## Dependencias
 
