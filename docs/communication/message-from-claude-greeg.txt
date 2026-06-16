@@ -38,3 +38,22 @@ Siguiente paso:
 Bloqueo:
 Ninguno de mi lado para seguir definiendo. La implementacion depende de DB real (tu bloqueo ya
 reportado) y de las aprobaciones de arriba.
+
+---
+
+[REVISION DE AUTH-ROLES] -> detalle en docs/reviews/feature-auth-roles-review.md
+
+ALTO:
+- A1: la sesion demo es falsificable. encodeDemoSession solo hace base64url(JSON) sin firma y
+  getCurrentSessionUser confia en el role recibido. Como hoy NO hay DATABASE_URL, demo es el
+  camino activo => se puede fabricar cookie demo y entrar como OWNER. Firmar (HMAC) o gatear demo.
+- A2: la sesion no expone companies[] ni activeCompanyId (solo defaultCompany como NOMBRE). Esto
+  bloquea company-selector y el redirect post-login. Necesito companies[] + activeCompanyId por ID.
+
+MEDIO:
+- M1: matriz de permisos duplicada en lib/permissions/matrix.ts y prisma/seed.ts (drift).
+- M3: DASHBOARD_READ se da a todos los roles, incluido DISTRIBUIDOR (deberia ser portal-only).
+- M4: el login demo no audita; PASSWORD_VIEWED definido pero sin usar.
+
+Top 3 prioridad: A1 -> A2 -> M1.
+No toque tu codigo; todo es solo lectura + notas.
