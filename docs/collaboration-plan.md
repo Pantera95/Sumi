@@ -1,6 +1,6 @@
 # Plan de colaboracion
 
-Este documento define como trabajaran 2 personas con 2 sesiones de Codex y 1 sesion de Claude Code sin pisarse, con integracion rapida y ownership claro.
+Este documento define como trabajaran Greeg y Salem con 2 sesiones de Codex y 1 sesion de Claude Code sin pisarse, con integracion rapida y ownership claro.
 
 ## Objetivo
 
@@ -8,6 +8,14 @@ Este documento define como trabajaran 2 personas con 2 sesiones de Codex y 1 ses
 - Evitar que varias sesiones editen al mismo tiempo archivos base.
 - Integrar cambios pequenos y frecuentes sobre `dev`.
 - Mantener trazabilidad por modulo en `docs/progress`.
+
+## Sesiones activas
+
+- `Greeg`: owner principal de Core y reglas base
+- `Codex-Greeg`: implementacion tecnica junto a Greeg
+- `Claude-Greeg`: checklist, decisiones, criterios de aceptacion y revision
+- `Salem`: owner principal de UI y dashboard
+- `Codex-Salem`: implementacion tecnica junto a Salem
 
 ## Ramas oficiales
 
@@ -25,7 +33,7 @@ Regla principal:
 
 ## Reparto recomendado
 
-### Persona 1 + Codex A
+### Greeg + Codex-Greeg
 
 Ramas:
 
@@ -52,7 +60,7 @@ Responsabilidades:
 - auditoria minima
 - semillas iniciales relacionadas con usuarios y empresas
 
-### Persona 2 + Codex B
+### Salem + Codex-Salem
 
 Ramas:
 
@@ -79,9 +87,9 @@ Responsabilidades:
 - reportes basicos
 - responsive desktop y tablet
 
-### Claude Code
+### Claude-Greeg
 
-Claude no debe arrancar editando al mismo tiempo archivos compartidos de infraestructura salvo que se le asigne explicitamente una rama aislada.
+Claude-Greeg no debe arrancar editando al mismo tiempo archivos compartidos de infraestructura salvo que se le asigne explicitamente una rama aislada.
 
 Uso recomendado:
 
@@ -120,9 +128,9 @@ Cada rama tiene un solo duenio tecnico.
 
 Eso significa:
 
-- una persona decide el enfoque
-- su Codex implementa con esa persona
-- Claude revisa o prepara contexto, pero no entra a editar lo mismo al mismo tiempo
+- Greeg decide el enfoque en sus ramas y `Codex-Greeg` implementa con el
+- Salem decide el enfoque en sus ramas y `Codex-Salem` implementa con el
+- `Claude-Greeg` revisa o prepara contexto, pero no entra a editar lo mismo al mismo tiempo
 
 ## Flujo diario recomendado
 
@@ -182,9 +190,9 @@ Este orden minimiza bloqueos entre ustedes:
 
 Para arrancar hoy:
 
-- Persona 1 + Codex A: `feature/auth-roles`
-- Persona 2 + Codex B: `feature/ui-system`
-- Claude Code: bajar a checklist `feature/company-selector` y `feature/dashboard`, mas decisiones pendientes en `docs/decisions`
+- Greeg + `Codex-Greeg`: `feature/auth-roles`
+- Salem + `Codex-Salem`: `feature/ui-system`
+- `Claude-Greeg`: bajar a checklist `feature/company-selector` y `feature/dashboard`, mas decisiones pendientes en `docs/decisions`
 
 Asi ustedes avanzan en paralelo sin tocar todavia el mismo centro de gravedad.
 
@@ -215,13 +223,19 @@ Esperando decision sobre permisos o modelo de datos.
 
 ## Mensaje corto para pasar a cada sesion
 
-### Para un Codex asignado a una feature
+### Para Codex-Greeg
 
 ```text
 Trabaja solo sobre la rama de esta feature. No toques archivos compartidos fuera de su ownership salvo que sea estrictamente necesario. Antes de cerrar, actualiza docs/progress de la feature y valida build + lint.
 ```
 
-### Para Claude Code
+### Para Codex-Salem
+
+```text
+Trabaja solo sobre la rama de esta feature. No toques archivos compartidos fuera de su ownership salvo que sea estrictamente necesario. Antes de cerrar, actualiza docs/progress de la feature y valida build + lint.
+```
+
+### Para Claude-Greeg
 
 ```text
 No edites archivos base compartidos salvo instruccion explicita. Prioriza acceptance criteria, reglas de negocio, checklist funcional, decisiones tecnicas y revision de cambios para reducir conflictos entre ramas.
