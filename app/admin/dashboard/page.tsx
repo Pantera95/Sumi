@@ -4,12 +4,10 @@ import { StatCard } from "@/components/ui/StatCard";
 import { SectionCard } from "@/components/ui/SectionCard";
 import { AlertCard } from "@/components/ui/AlertCard";
 import { StatusBadge } from "@/components/ui/StatusBadge";
-import { SeriesChart } from "@/components/ui/SeriesChart";
+import { BiVentasUtilidad, BiVentasCompras, BiCategoriasDonut } from "@/components/ui/BiCharts";
 import {
   kpis,
   roiCards,
-  months,
-  series,
   productosMayorRetorno,
   categoriasMasRentables,
   cilindrosPorEstado,
@@ -110,37 +108,18 @@ export default function DashboardPage() {
 
       {/* Gráfico protagonista */}
       <div className="mt-6">
-        <SectionCard title="Ventas vs utilidad" description="Comparativo mensual 2024 (USD).">
-          <SeriesChart
-            labels={months}
-            series={[
-              { name: "Ventas", color: "var(--color-brand)", values: series.ventas },
-              { name: "Utilidad", color: "var(--color-navy)", values: series.utilidad },
-            ]}
-            height={260}
-          />
+        <SectionCard title="Ventas vs utilidad" description="Comparativo mensual 2024 (USD). Interactivo.">
+          <BiVentasUtilidad />
         </SectionCard>
       </div>
 
       {/* Bloques secundarios */}
       <div className="mt-6 grid gap-4 lg:grid-cols-2">
-        <SectionCard title="Ventas vs compras" description="Mensual 2024 (USD).">
-          <SeriesChart
-            labels={months}
-            series={[
-              { name: "Ventas", color: "var(--color-brand)", values: series.ventas },
-              { name: "Compras", color: "var(--color-info)", values: series.compras },
-            ]}
-          />
+        <SectionCard title="Ventas vs compras" description="Mensual 2024 (USD). Interactivo.">
+          <BiVentasCompras />
         </SectionCard>
-        <SectionCard title="Facturas vs notas de entrega" description="Distribución mensual 2024 (USD).">
-          <SeriesChart
-            labels={months}
-            series={[
-              { name: "Facturas", color: "var(--color-navy)", values: series.factura },
-              { name: "Notas de entrega", color: "var(--color-accent)", values: series.notasEntrega },
-            ]}
-          />
+        <SectionCard title="Categorías más rentables" description="Margen por categoría.">
+          <BiCategoriasDonut />
         </SectionCard>
       </div>
 
