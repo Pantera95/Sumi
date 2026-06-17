@@ -1,9 +1,46 @@
 @import "tailwindcss";
 
+/* Modo oscuro por clase en <html> (Tailwind v4) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Identidad visual SumiControl: azul marino, naranja Sumigases, blanco, grises, amarillo de acento */
+@theme {
+  --color-brand: #ea6a1e;
+  --color-brand-600: #d65f17;
+  --color-brand-soft: rgba(234, 106, 30, 0.12);
+  --color-navy: #0b2545;
+  --color-navy-700: #123a6b;
+  --color-accent: #f5c542;
+
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+
+  --color-ok: #16a34a;
+  --color-warn: #d97706;
+  --color-danger: #dc2626;
+  --color-info: #2563eb;
+}
+
 :root {
-  --background: #09111f;
-  --foreground: #edf2f7;
-  --panel: rgba(15, 23, 42, 0.82);
+  --bg: #eef2f7;
+  --surface: #ffffff;
+  --surface-2: #f7f9fc;
+  --border: #e2e8f0;
+  --text: #0f1b2d;
+  --muted: #5b6b82;
+}
+
+.dark {
+  --bg: #07111e;
+  --surface: #0f1d33;
+  --surface-2: #0b1626;
+  --border: #1e304d;
+  --text: #e8eef6;
+  --muted: #93a4bc;
 }
 
 * {
@@ -17,12 +54,11 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background:
-    radial-gradient(circle at top, rgba(251, 191, 36, 0.18), transparent 28%),
-    radial-gradient(circle at 85% 18%, rgba(34, 211, 238, 0.16), transparent 24%),
-    linear-gradient(180deg, #08111d 0%, #0b1323 46%, #050914 100%);
-  color: var(--foreground);
-  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 a {
@@ -30,11 +66,13 @@ a {
   text-decoration: none;
 }
 
-code {
-  border: 1px solid rgba(148, 163, 184, 0.22);
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.72);
-  padding: 0.15rem 0.5rem;
-  font-family: "SFMono-Regular", "Menlo", monospace;
-  font-size: 0.9em;
+/* Foco visible accesible en cualquier control */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.sumi-scroll {
+  scrollbar-width: thin;
 }
