@@ -51,8 +51,30 @@ Las cifras del dashboard, inventario y matrices provienen de la data real 2024 d
 - `npm install`, `npm run lint`, `npm run build`: ver estado al final del PR.
 - `npm run typecheck`: el script NO existe en package.json; el chequeo de tipos lo hace `next build`.
 
+## BI: gráficas dinámicas (Recharts) — portadas de Ranko
+
+- Se añadió `components/ui/BiCharts.tsx` con gráficas **dinámicas Recharts** (líneas Ventas vs
+  utilidad, barras Ventas vs compras, donut Categorías por margen), con tooltips y leyendas,
+  adaptadas a los tokens de SumiControl (naranja/navy/dorado, claro-oscuro) y data real 2024.
+  Reemplazan las gráficas SVG estáticas en el dashboard. Commit `2a99f29`.
+- Estado: **código listo y probado en local (build ✓, lint ✓), pusheado**. **NO desplegado** aún.
+
+### ⚠️ Bloqueo de deploy en Vercel (pendiente, no es código)
+
+- `vercel --prod` falla con: *"Serverless Functions are limited to 2048 mb of memory for personal
+  accounts (Hobby plan). To increase, create a team (Pro plan)."*
+- No es problema del build (es estático). Se intentó destrabar por API (Fluid Compute off,
+  `functionDefaultTimeout` 60); persiste. Es un límite del plan.
+- La producción actual (`https://sumicontrol.vercel.app`) **sigue intacta** con la versión previa
+  (gráficas estáticas); los deploys fallidos no reemplazan el alias en vivo.
+- **Para liberar:** subir el proyecto a Pro/Team en Vercel (o ajustar Function Memory/Timeout en
+  Settings → Functions) y luego `vercel --prod` publica el commit ya listo.
+- Ajustes dejados durante pruebas en el proyecto Vercel: `resourceConfig.fluid=false`,
+  `functionDefaultTimeout=60` (compatibles con Hobby, reversibles).
+
 ## Pendientes
 
+- **Desplegar las gráficas BI** una vez resuelto el límite de Vercel (ver bloqueo arriba).
 - Conectar datos reales (reemplazar mocks de `lib/ux/dashboard-data.ts` por queries reales).
 - Integrar con auth/empresa real cuando `feature/auth-roles` exponga sesión + `companies[]`.
 - Cuando exista `feature/ui-system` de Salem, reconciliar este sistema visual con el suyo.
