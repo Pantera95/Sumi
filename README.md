@@ -34,3 +34,18 @@ feature/* -> dev -> main
 ```
 
 Cada modulo debe mantener actualizado su archivo en `docs/progress`.
+
+## Candados duros
+
+Estas zonas no se modifican sin permiso del owner:
+
+- Core Greeg: `prisma/`, `lib/auth/`, `lib/permissions/`, `lib/audit/`, `app/auth/`, `package.json`, `package-lock.json`
+- UI Salem: `app/admin/`, `app/globals.css`, `components/ui/`, `components/layout/`, `components/dashboard/`, `components/charts/`
+- Coordinacion solo Greeg: `main`, `dev`, Vercel, variables de entorno, `vercel.json`, `PLANNING.md`, `docs/planning/sumicontrol-planning.md`, `docs/collaboration-plan.md`
+
+Reglas obligatorias:
+
+- No tocar un candado duro de otro owner sin aviso previo y confirmacion.
+- No hacer refactors globales, renombres masivos ni formateo amplio dentro de una zona bloqueada.
+- No cambiar dependencias, lockfiles o deploy fuera de una tarea explicita.
+- Todo acceso excepcional debe anotarse en `docs/progress/feature-*.md`.

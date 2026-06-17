@@ -74,6 +74,30 @@ Minimo que debe incluir cada aviso:
 
 Nadie debe saltarse este paso.
 
+## Candados duros del proyecto
+
+Estas zonas no se tocan sin permiso explicito del owner:
+
+- Core Greeg: `prisma/`, `lib/auth/`, `lib/permissions/`, `lib/audit/`, `app/auth/`, `package.json`, `package-lock.json`
+- UI Salem: `app/admin/`, `app/globals.css`, `components/ui/`, `components/layout/`, `components/dashboard/`, `components/charts/`
+- Coordinacion solo Greeg: `main`, `dev`, Vercel, variables de entorno, `vercel.json`, `PLANNING.md`, `docs/planning/sumicontrol-planning.md`, `docs/collaboration-plan.md`
+
+Reglas obligatorias:
+
+- No modificar un candado duro de otro owner sin aviso previo y confirmacion.
+- No hacer refactors amplios, renombres masivos ni formateo global dentro de una zona bloqueada.
+- No cambiar dependencias, lockfiles o configuracion de deploy fuera de una tarea explicita.
+- No tocar la misma zona bloqueada desde dos sesiones al mismo tiempo.
+- Todo acceso excepcional a una zona bloqueada debe quedar anotado en `docs/progress/feature-*.md`.
+
+Si una sesion necesita tocar algo bloqueado:
+
+1. avisa antes
+2. dice archivo exacto y motivo
+3. espera confirmacion o handoff
+4. hace el cambio minimo
+5. avisa cuando libera el candado
+
 ## Ramas sugeridas
 
 ```text

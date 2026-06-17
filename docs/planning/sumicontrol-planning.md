@@ -232,6 +232,30 @@ Regla obligatoria de comunicacion:
    - `docs/communication/message-general-project-chat.txt`
 6. Nadie debe saltarse este paso, porque la coordinacion entre sesiones es parte del trabajo, no un extra.
 
+## 8.1 Candados duros y zonas no modificables sin permiso
+
+Estas zonas quedan protegidas por owner:
+
+- Core Greeg: `prisma/`, `lib/auth/`, `lib/permissions/`, `lib/audit/`, `app/auth/`, `package.json`, `package-lock.json`
+- UI Salem: `app/admin/`, `app/globals.css`, `components/ui/`, `components/layout/`, `components/dashboard/`, `components/charts/`
+- Coordinacion Greeg: `main`, `dev`, Vercel, variables de entorno, `vercel.json`, `PLANNING.md`, `docs/planning/sumicontrol-planning.md`, `docs/collaboration-plan.md`
+
+Reglas obligatorias:
+
+1. Nadie modifica una zona de otro owner sin aviso previo y confirmacion.
+2. Nadie hace refactor amplio, renombre masivo o formateo global dentro de una zona con candado.
+3. Nadie cambia dependencias, lockfiles o configuracion de deploy fuera de una tarea explicita.
+4. Dos sesiones no trabajan al mismo tiempo sobre el mismo candado duro.
+5. Todo acceso excepcional debe quedar reflejado en `docs/progress/feature-*.md` y avisado al equipo.
+
+Proceso obligatorio para tocar una zona bloqueada:
+
+1. Avisar antes.
+2. Indicar archivo exacto, motivo y alcance.
+3. Esperar confirmacion del owner o handoff explicito.
+4. Hacer el cambio minimo necesario.
+5. Avisar al cerrar que el candado ya quedo liberado.
+
 ## 9. División de trabajo por agentes / IA
 
 ### Agente A — Core, auth, permisos y base de datos

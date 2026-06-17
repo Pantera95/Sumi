@@ -117,10 +117,49 @@ Estos archivos o carpetas no deben ser tocados por varias sesiones a la vez sin 
 - `lib/auth/*`
 - `lib/permissions/*`
 - `package.json`
+- `package-lock.json`
+- `vercel.json`
+- `docs/collaboration-plan.md`
+- `PLANNING.md`
+- `docs/planning/sumicontrol-planning.md`
 
 Regla:
 
 - si una persona o agente necesita tocar un archivo con candado, lo anuncia antes y lo toma como tarea explicita
+
+## Candado duro por owner
+
+Estas zonas no se modifican sin aprobacion del owner responsable:
+
+- `Greeg + Codex-Greeg`: `prisma/`, `lib/auth/`, `lib/permissions/`, `lib/audit/`, `app/auth/`, `package.json`, `package-lock.json`
+- `Salem + Codex-Salem`: `app/admin/`, `components/ui/`, `components/layout/`, `components/dashboard/`, `components/charts/`, `app/globals.css`
+- `Solo Greeg`: `main`, `dev`, Vercel, variables de entorno, `vercel.json`, `PLANNING.md`, `docs/planning/sumicontrol-planning.md`, `docs/collaboration-plan.md`
+
+## Reglas obligatorias de bloqueo
+
+Cuando un archivo o carpeta tenga candado duro:
+
+1. No se modifica por intuicion ni por conveniencia.
+2. No se hacen refactors globales, renombres masivos ni formateos amplios en esa zona.
+3. No se actualizan dependencias ni lockfiles si no forman parte del objetivo directo de la rama.
+4. No se mezcla en el mismo commit trabajo propio con cambios sobre zona bloqueada de otro owner.
+5. No se abre una segunda sesion tocando al mismo tiempo el mismo candado.
+
+Si alguien necesita tocar una zona bloqueada de otro owner, el proceso es obligatorio:
+
+1. Avisar antes en el chat y en `docs/progress/feature-*.md`.
+2. Indicar archivo exacto, motivo y alcance pequeno.
+3. Esperar confirmacion del owner o handoff explicito.
+4. Hacer el cambio minimo posible.
+5. Avisar al cerrar que ya libero el candado.
+
+## Cambios expresamente prohibidos sin permiso
+
+- Cambiar `prisma/schema.prisma` mientras otra sesion trabaja auth o company selector.
+- Cambiar `app/globals.css` o `components/ui/*` mientras Salem tenga abierto `feature/ui-system` o `feature/dashboard`.
+- Cambiar `package.json`, `package-lock.json` o `vercel.json` sin avisar a todo el equipo.
+- Hacer deploy a `dev` o `main` sin que Greeg lo coordine.
+- Reemplazar o reescribir planning, collaboration plan o prompts base sin avisarlo antes.
 
 ## Regla de ownership
 
