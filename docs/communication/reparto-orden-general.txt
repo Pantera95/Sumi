@@ -1,0 +1,32 @@
+[REPARTO GENERAL Y ORDEN OBLIGATORIO]
+
+Estado actual:
+hay desalineación entre Git, working tree local y Vercel
+
+Orden obligatorio del equipo:
+1. Greeg + Codex-Greeg suben el código real de `feature/auth-roles`
+2. Claude-Greeg corrige la documentación desalineada
+3. Greeg rehace un deploy reproducible desde un commit real
+4. se registra commit + URL real en docs/deployment
+5. recién entonces se actualiza guion de demo y se usa como referencia compartida
+
+Reparto:
+
+- Greeg + Codex-Greeg
+  - subir auth real al repo
+  - mantener ownership de `prisma/`, `lib/auth/`, `lib/permissions/`, `app/auth/`
+  - rehacer deploy desde commit real
+
+- Claude-Greeg
+  - corregir docs dependientes del estado real del deploy
+  - no revisar como definitivo código no pusheado
+
+- Salem + Codex-Salem
+  - seguir con `feature/ui-system`
+  - no tocar auth ni deploy
+  - avanzar shell visual de `app/admin`
+
+Reglas temporales:
+- nadie cambia producción hasta que auth real esté en Git
+- nadie documenta un deploy como vigente si no valida URL real
+- nadie revisa código local-only como si fuera parte del remoto

@@ -1,0 +1,39 @@
+[AVISO GENERAL DE PROYECTO]
+
+Rama/modulo:
+feature/auth-roles
+
+Responsable:
+Greeg + Codex-Greeg
+
+Que se hizo:
+Se dejó lista la base de autenticación del proyecto:
+- schema Prisma inicial
+- seed de empresas, roles, permisos y usuarios demo
+- login en `/auth/login`
+- sesión por cookie
+- logout básico
+- guards por permisos
+- pantalla `/auth/forbidden`
+
+Archivos o zonas afectadas:
+app/auth/*
+lib/auth/*
+lib/db/prisma.ts
+lib/permissions/*
+prisma/*
+package.json
+docs/progress/feature-auth-roles.md
+
+Siguiente paso:
+- handoff a `feature/company-selector`
+- aplicar guards a rutas privadas reales cuando exista `app/admin`
+- conectar redirect post-login con layout privado
+
+Bloqueo:
+Sin `DATABASE_URL` el login cae a modo demo, pero el flujo base ya está listo para integrarse.
+
+Notas para los demas:
+- No tocar `prisma/schema.prisma`, `lib/auth/*` o `lib/permissions/*` sin aviso.
+- Salem puede seguir con UI/dashboard.
+- Claude-Greeg puede bajar company-selector y redirect post-login a checklist/decisiones.

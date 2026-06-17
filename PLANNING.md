@@ -25,8 +25,18 @@ No usar NextAuth en esta fase.
 
 - SumiControl: `https://github.com/Pantera95/Sumi`
 - Alice, producto neutral futuro: `https://github.com/Pantera95/Alice.git`
+- Vercel panel objetivo: `https://vercel.com/pantera95s-projects`
 
 Alice queda postergado. La prioridad actual es SumiControl.
+
+## Deploy
+
+- Hosting objetivo: Vercel
+- Owner del deploy y variables: Greeg
+- Flujo documentado en `docs/deployment/vercel-workflow.md`
+- `feature/*` = preview opcional
+- `dev` = staging compartido
+- `main` = producción
 
 ## Reglas de colaboración
 
@@ -39,6 +49,30 @@ feature/* -> dev -> main
 ```
 
 Cada rama debe actualizar su archivo de progreso en `/docs/progress`.
+
+Regla obligatoria de comunicacion:
+
+- Cada cambio relevante debe avisarse al resto.
+- El aviso no es opcional cuando se toca una feature, un archivo con candado, `dev`, `main` o Vercel.
+- Todo aviso debe reflejarse primero en `docs/progress/feature-*.md`.
+- El protocolo oficial vive en `docs/communication/update-protocol.md`.
+- Las plantillas oficiales para copiar y pegar viven en:
+  - `docs/communication/update-message-template.txt`
+  - `docs/communication/handoff-template.txt`
+- Mensajes ya preparados para uso inmediato:
+  - `docs/communication/message-to-salem.txt`
+  - `docs/communication/message-to-claude-greeg.txt`
+  - `docs/communication/message-general-project-chat.txt`
+
+Minimo que debe incluir cada aviso:
+
+- rama o modulo
+- que se hizo
+- archivos o zonas afectadas
+- siguiente paso
+- bloqueo, si existe
+
+Nadie debe saltarse este paso.
 
 ## Ramas sugeridas
 

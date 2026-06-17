@@ -1,0 +1,37 @@
+[REPARTO Y ORDEN PARA SALEM]
+
+Responsable:
+Salem + Codex-Salem
+
+Tu foco actual:
+seguir con `feature/ui-system` sin tocar auth ni deploy
+
+Que si debes hacer:
+- avanzar `app/admin/*`
+- avanzar `components/layout/*`
+- avanzar `components/ui/*`
+- dejar el shell visual del admin listo para recibir auth
+- preparar estructura para dashboard y navegación privada
+
+Que no debes tocar:
+- `lib/auth/*`
+- `lib/permissions/*`
+- `lib/db/prisma.ts`
+- `prisma/schema.prisma`
+- `vercel.json`
+- deploy de Vercel
+
+Orden del equipo ahora mismo:
+1. Greeg sube el código real de auth al repo
+2. Claude corrige docs desalineados
+3. Greeg rehace deploy reproducible
+4. recién después se alinea demo y handoff visual
+
+Qué necesitas saber:
+- auth está avanzando en `feature/auth-roles`
+- todavía no debe tomarse como contrato final el estado público de `sumicontrol.vercel.app`
+- si necesitas layout privado o punto de entrada post-login, avisa antes de tocar algo que dependa de auth
+
+Tu siguiente paso:
+- seguir con UI base y admin shell
+- no esperar Vercel para continuar

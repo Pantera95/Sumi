@@ -1,0 +1,27 @@
+[AVISO PARA SALEM]
+
+Rama/modulo:
+feature/auth-roles
+
+Responsable:
+Greeg + Codex-Greeg
+
+Que se hizo:
+Se montó la base de auth del proyecto con schema Prisma inicial, seed, login, sesión por cookie, logout, guards por permisos y pantalla `forbidden`.
+
+Archivos o zonas afectadas:
+app/auth/*
+lib/auth/*
+lib/db/prisma.ts
+lib/permissions/*
+prisma/*
+package.json
+
+Siguiente paso:
+Tu lado puede seguir con `feature/ui-system` y `feature/dashboard` sin esperar más por auth base. Cuando exista área privada real en `app/admin`, luego conectamos guards y redirect post-login.
+
+Bloqueo:
+Sin `DATABASE_URL` el login usa fallback demo, pero no bloquea tu trabajo de UI.
+
+Notas para los demas:
+No tocar `lib/auth/*`, `lib/permissions/*` ni `prisma/schema.prisma` sin avisar. Si necesitas un layout privado o shell de admin, avísame para conectar auth ahí sin pisarnos.

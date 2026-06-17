@@ -1,0 +1,17 @@
+[HANDOFF]
+
+Rama/modulo:
+
+Responsable actual:
+
+Se dejo listo:
+
+Falta exacto:
+
+Archivos que no deberian tocarse:
+
+Bloqueo o riesgo:
+
+Validaciones hechas:
+
+Siguiente responsable sugerido:

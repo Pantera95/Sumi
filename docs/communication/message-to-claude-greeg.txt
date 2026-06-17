@@ -1,0 +1,30 @@
+[AVISO PARA CLAUDE-GREEG]
+
+Rama/modulo:
+feature/auth-roles
+
+Responsable:
+Greeg + Codex-Greeg
+
+Que se hizo:
+Ya existe una base funcional de auth con Prisma schema, seed, login híbrido, sesión por cookie, guards por permisos y ruta `forbidden`.
+
+Archivos o zonas afectadas:
+docs/progress/feature-auth-roles.md
+app/auth/*
+lib/auth/*
+lib/db/prisma.ts
+lib/permissions/*
+prisma/*
+
+Lo que necesito de ti:
+1. bajar `feature/company-selector` a checklist accionable
+2. proponer acceptance criteria de redirect post-login por rol y empresa
+3. revisar riesgos de permisos visibles, company scope y handoff hacia `app/admin`
+4. si hace falta, dejar decisiones nuevas en `docs/decisions`
+
+Bloqueo:
+Falta DB real para flujo completo con Prisma, pero el trabajo de definición ya puede avanzar igual.
+
+Notas para los demas:
+No invadir `lib/auth/*` ni `prisma/schema.prisma` con cambios grandes. Prioriza checklist, decisiones y revisión.

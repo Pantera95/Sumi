@@ -1,0 +1,39 @@
+[REPARTO Y ORDEN PARA CLAUDE-GREEG]
+
+Responsable:
+Claude-Greeg
+
+Tu foco actual:
+corregir la documentación que hoy depende de un estado desalineado entre Git, local y Vercel
+
+Prioridad exacta:
+1. `docs/deployment/deploy-log.md`
+2. `docs/demo/guion-demo.md`
+3. `docs/status/2026-06-16-diagnostico.md`
+
+Objetivo:
+- dejar claro qué era snapshot histórico
+- qué sigue vigente
+- qué depende de un redeploy real
+- qué ya no coincide con `https://sumicontrol.vercel.app`
+
+Reglas:
+- no revisar ni documentar como “real” código que no esté en Git
+- no asumir que producción coincide con el último deploy documentado
+- no tocar auth base ni prisma salvo instrucción explícita
+
+Orden del equipo ahora mismo:
+1. Greeg sube código real de auth
+2. tú corriges docs sensibles al estado
+3. Greeg rehace deploy reproducible
+4. luego se actualiza el guion de demo contra la URL real vigente
+
+Qué sí puedes producir:
+- textos corregidos
+- notas de auditoría
+- advertencias de desalineación
+- checklist de validación post-redeploy
+
+Qué no debes hacer:
+- asumir que `/auth/login` sigue público en producción
+- tratar el deploy log actual como fuente de verdad definitiva

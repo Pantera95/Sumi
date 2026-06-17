@@ -54,6 +54,21 @@ https://github.com/Pantera95/Alice.git
 
 Alice queda postergado. No se desarrollará en paralelo esta semana. La arquitectura de SumiControl debe escribirse de forma modular para que más adelante pueda reutilizarse en Alice sin datos, branding ni reglas específicas de Sumigases.
 
+### Vercel
+
+Panel objetivo indicado para despliegues:
+
+```text
+https://vercel.com/pantera95s-projects
+```
+
+Regla operativa:
+
+- `feature/*` puede tener preview opcional
+- `dev` se usa como staging compartido
+- `main` se reserva para producción
+- el flujo detallado vive en `docs/deployment/vercel-workflow.md`
+
 ## 5. Stack técnico confirmado
 
 ```text
@@ -196,6 +211,26 @@ feature/* -> dev -> main
 ```
 
 Cada feature debe incluir un archivo de progreso en `/docs/progress`.
+
+Regla obligatoria de comunicacion:
+
+1. Cada sesion debe actualizar `docs/progress/feature-*.md` antes de dar por cerrado un bloque.
+2. Cada sesion debe avisar al resto cuando:
+   - crea rama
+   - toca archivos con candado
+   - termina un bloque funcional
+   - hace merge a `dev`
+   - hace deploy a Vercel
+   - detecta un bloqueo transversal
+3. El protocolo oficial vive en `docs/communication/update-protocol.md`.
+4. Las plantillas oficiales viven en:
+   - `docs/communication/update-message-template.txt`
+   - `docs/communication/handoff-template.txt`
+5. Mensajes ya preparados para copiar y pegar:
+   - `docs/communication/message-to-salem.txt`
+   - `docs/communication/message-to-claude-greeg.txt`
+   - `docs/communication/message-general-project-chat.txt`
+6. Nadie debe saltarse este paso, porque la coordinacion entre sesiones es parte del trabajo, no un extra.
 
 ## 9. División de trabajo por agentes / IA
 

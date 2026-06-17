@@ -164,6 +164,30 @@ Eso significa:
 - No acumular ramas gigantes.
 - Si una rama toca base compartida, mergearla temprano.
 
+## Deploy y Vercel
+
+- Vercel owner: `Greeg`
+- Repo objetivo: `Sumi`
+- Panel objetivo: `https://vercel.com/pantera95s-projects`
+- Flujo de deploy documentado en `docs/deployment/vercel-workflow.md`
+
+Reglas:
+
+- `feature/*`: preview opcional
+- `dev`: staging compartido
+- `main`: produccion
+- Solo Greeg o una sesion coordinada por Greeg cambia env vars o configuracion del proyecto
+
+## Avisos entre sesiones
+
+- Cada cambio relevante debe reflejarse en `docs/progress/feature-*.md`
+- Cada cambio relevante debe anunciarse con mensaje corto al resto
+- Si hay handoff, debe incluir que esta hecho, que falta y que no tocar
+- Protocolo documentado en `docs/communication/update-protocol.md`
+- Plantillas listas en:
+  - `docs/communication/update-message-template.txt`
+  - `docs/communication/handoff-template.txt`
+
 ## Orden recomendado de ejecucion
 
 Este orden minimiza bloqueos entre ustedes:
