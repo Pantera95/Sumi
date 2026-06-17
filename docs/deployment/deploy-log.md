@@ -15,6 +15,27 @@
   demo basada en cifras reales 2024.
 - Reemplazó el deploy previo (flujo de auth demo de feature/auth-roles); ese código sigue en su rama.
 
+## 2026-06-16 — gráficas BI (Recharts) en producción
+
+- Se añadieron gráficas dinámicas Recharts al dashboard (`components/ui/BiCharts.tsx`).
+- **En vivo:** https://sumicontrol.vercel.app/admin/dashboard (Ventas vs utilidad, Ventas vs compras,
+  Categorías por margen — con tooltips/leyendas).
+
+### ⚠️ Aprendizaje de deploy (importante)
+
+- **NO usar `vercel deploy --prod` por CLI** en este proyecto: el CLI envía su propia config de
+  recursos y choca con el límite del plan Hobby (*"Serverless Functions are limited to 2048 mb …"*),
+  aunque el proyecto tenga Fluid Compute desactivado y CPU en Hobby.
+- **Los deploys por GitHub SÍ funcionan** (usan solo los settings del proyecto). Todos los push a la
+  rama quedaron READY.
+- **Flujo correcto para publicar:**
+  1. `git push` a la rama.
+  2. Esperar que Vercel construya el deploy de ese commit (queda READY como preview).
+  3. Promoverlo a producción: `vercel promote <url-del-deploy>` (ej. `sumicontrol-xxxx.vercel.app`).
+  - O configurar el branch de producción en Vercel para que el push despliegue directo.
+- Settings del proyecto que dejaron pasar el build: Fluid Compute **off**, `functionDefaultTimeout`
+  60, memoria `standard_legacy` (Hobby).
+
 ## Pendientes
 
 - Abrir PR a `dev`: https://github.com/Pantera95/Sumi/pull/new/patch/greeg-ux-ui (gh no instalado).
