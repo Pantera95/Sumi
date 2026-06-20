@@ -11,6 +11,7 @@ En progreso.
 - Se dejaron KPIs demo, bloque de ventas/utilidad, cola operativa y seccion de reportes.
 - Se mejoro el shell para marcar `/admin/dashboard` como dashboard activo.
 - Se crearon `components/charts/bar-comparison-chart.tsx` y `components/dashboard/operations-list.tsx` para sacar piezas reutilizables del dashboard.
+- Se centralizo data demo de operaciones, chart y fundamentos UI en `lib/demo-data/admin.ts`.
 
 ## Archivos tocados
 
@@ -19,6 +20,7 @@ En progreso.
 - `components/charts/bar-comparison-chart.tsx`
 - `components/dashboard/operations-list.tsx`
 - `components/layout/admin-shell.tsx`
+- `lib/demo-data/admin.ts`
 - `docs/progress/feature-dashboard.md`
 
 ## Que falta

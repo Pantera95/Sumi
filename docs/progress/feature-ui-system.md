@@ -20,6 +20,7 @@ En progreso.
 - Se crearon componentes reutilizables para tablas y filtros: `DataTable`, `FilterBar` y `FilterField`.
 - Se agrego `/admin/reports` como pantalla base de reportes operativos.
 - Se iniciaron las carpetas de ownership de Salem `components/dashboard/` y `components/charts/`.
+- Se inicio `components/reports/` con workspace interactivo de reportes.
 
 ## Archivos tocados
 
@@ -30,6 +31,7 @@ En progreso.
 - `components/charts/bar-comparison-chart.tsx`
 - `components/dashboard/operations-list.tsx`
 - `components/layout/CompanySelector.tsx`
+- `components/reports/reports-workspace.tsx`
 - `components/layout/admin-shell.tsx`
 - `components/ui/badge.tsx`
 - `components/ui/button.tsx`
@@ -40,6 +42,7 @@ En progreso.
 - `components/ui/section-heading.tsx`
 - `app/admin/reports/page.tsx`
 - `lib/utils.ts`
+- `lib/demo-data/admin.ts`
 - `package.json`
 - `package-lock.json`
 

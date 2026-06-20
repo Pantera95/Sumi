@@ -16,6 +16,11 @@ import { BarComparisonChart } from "@/components/charts/bar-comparison-chart";
 import { OperationsList } from "@/components/dashboard/operations-list";
 import { MetricCard } from "@/components/ui/metric-card";
 import { SectionHeading } from "@/components/ui/section-heading";
+import {
+  dashboardChartValues,
+  dashboardOperations,
+  uiFoundations,
+} from "@/lib/demo-data/admin";
 
 const metrics = [
   {
@@ -50,21 +55,6 @@ const metrics = [
     trendDirection: "up" as const,
     icon: <Truck size={20} />,
   },
-];
-
-const operations = [
-  { label: "Cotizaciones por aprobar", value: "14", area: "Owner/Admin" },
-  { label: "Notas de entrega pendientes", value: "22", area: "Almacen" },
-  { label: "Pagos por verificar", value: "11", area: "Caja" },
-  { label: "Importaciones recientes", value: "3", area: "Excel 2024" },
-];
-
-const foundations = [
-  "Tokens visuales claro/oscuro",
-  "Botones, badges, cards y metric cards",
-  "Sidebar administrativo responsive",
-  "Header con busqueda y acciones",
-  "Base lista para modulos futuros",
 ];
 
 export default function AdminHome() {
@@ -111,12 +101,12 @@ export default function AdminHome() {
             <BarComparisonChart
               primaryLabel="Ventas"
               secondaryLabel="Utilidad"
-              values={[38, 52, 44, 68, 58, 76, 64, 82, 73, 88, 79, 92]}
+              values={dashboardChartValues}
             />
           </CardContent>
         </Card>
 
-        <OperationsList items={operations} />
+        <OperationsList items={dashboardOperations} />
       </section>
 
       <section className="grid gap-6 lg:grid-cols-3">
@@ -134,7 +124,7 @@ export default function AdminHome() {
           </CardHeader>
           <CardContent>
             <div className="grid gap-3 sm:grid-cols-2">
-              {foundations.map((item) => (
+              {uiFoundations.map((item) => (
                 <div
                   className="flex items-center gap-3 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-4 py-3 text-sm font-medium"
                   key={item}
