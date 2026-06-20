@@ -22,6 +22,7 @@ En progreso.
 - Se iniciaron las carpetas de ownership de Salem `components/dashboard/` y `components/charts/`.
 - Se inicio `components/reports/` con workspace interactivo de reportes.
 - Se agrego `ModulePlaceholder` y pantallas base para las rutas del sidebar administrativo, evitando 404 durante la demo.
+- Se agregaron controles reutilizables de formulario: `FieldShell`, `TextField`, `SelectField` y `TextareaField`.
 
 ## Archivos tocados
 
@@ -51,6 +52,7 @@ En progreso.
 - `components/ui/card.tsx`
 - `components/ui/data-table.tsx`
 - `components/ui/filter-bar.tsx`
+- `components/ui/form-field.tsx`
 - `components/ui/metric-card.tsx`
 - `components/ui/section-heading.tsx`
 - `app/admin/reports/page.tsx`

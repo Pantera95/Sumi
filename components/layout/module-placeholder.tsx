@@ -13,6 +13,7 @@ type ModulePlaceholderProps = {
   status?: ModuleStatus;
   primaryAction?: ReactNode;
   items: string[];
+  children?: ReactNode;
 };
 
 const statusTone: Record<ModuleStatus, "success" | "info" | "warning"> = {
@@ -28,6 +29,7 @@ export function ModulePlaceholder({
   status = "En diseno",
   primaryAction,
   items,
+  children,
 }: ModulePlaceholderProps) {
   return (
     <>
@@ -86,7 +88,8 @@ export function ModulePlaceholder({
           </CardContent>
         </Card>
       </section>
+
+      {children ? <section>{children}</section> : null}
     </>
   );
 }
-
