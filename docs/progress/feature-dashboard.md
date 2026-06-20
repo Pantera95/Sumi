@@ -12,12 +12,14 @@ En progreso.
 - Se mejoro el shell para marcar `/admin/dashboard` como dashboard activo.
 - Se crearon `components/charts/bar-comparison-chart.tsx` y `components/dashboard/operations-list.tsx` para sacar piezas reutilizables del dashboard.
 - Se centralizo data demo de operaciones, chart y fundamentos UI en `lib/demo-data/admin.ts`.
+- Se agrego `DashboardWorkspace` con filtros funcionales por empresa/periodo, KPIs dinamicos y alertas ejecutivas.
 
 ## Archivos tocados
 
 - `app/admin/page.tsx`
 - `app/admin/dashboard/page.tsx`
 - `components/charts/bar-comparison-chart.tsx`
+- `components/dashboard/dashboard-workspace.tsx`
 - `components/dashboard/operations-list.tsx`
 - `components/layout/admin-shell.tsx`
 - `lib/demo-data/admin.ts`

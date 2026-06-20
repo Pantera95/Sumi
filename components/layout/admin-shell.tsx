@@ -191,9 +191,11 @@ export function AdminShell({ children }: AdminShellProps) {
                   onChange={setActiveCompanyId}
                 />
               </div>
-              <Button aria-label="Notificaciones" size="icon" variant="secondary">
-                <Bell size={18} />
-              </Button>
+              <Link href="/admin/alerts">
+                <Button aria-label="Notificaciones" size="icon" variant="secondary">
+                  <Bell size={18} />
+                </Button>
+              </Link>
               <button className="flex h-10 items-center gap-3 rounded-md border border-[var(--color-border)] bg-[var(--color-surface)] px-3 text-left text-sm">
                 <span className="hidden md:block">
                   <span className="block font-semibold text-[var(--color-foreground)]">

@@ -6,6 +6,7 @@ type OperationItem = {
   label: string;
   value: string;
   area: string;
+  priority?: "Alta" | "Media" | "Baja";
 };
 
 type OperationsListProps = {
@@ -42,13 +43,12 @@ export function OperationsList({ items }: OperationsListProps) {
                 {item.area}
               </p>
             </div>
-            <span className="text-lg font-semibold text-[var(--color-brand-orange)]">
-              {item.value}
-            </span>
+                <span className="text-lg font-semibold text-[var(--color-brand-orange)]">
+                  {item.value}
+                </span>
           </div>
         ))}
       </CardContent>
     </Card>
   );
 }
-

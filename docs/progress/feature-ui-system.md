@@ -23,9 +23,12 @@ En progreso.
 - Se inicio `components/reports/` con workspace interactivo de reportes.
 - Se agrego `ModulePlaceholder` y pantallas base para las rutas del sidebar administrativo, evitando 404 durante la demo.
 - Se agregaron controles reutilizables de formulario: `FieldShell`, `TextField`, `SelectField` y `TextareaField`.
+- Se agrego `DashboardWorkspace` como workspace interactivo para el dashboard administrativo.
+- Se enlazo la campana del header con `/admin/alerts` y se agrego una bandeja demo de alertas.
 
 ## Archivos tocados
 
+- `app/admin/alerts/page.tsx`
 - `app/admin/accounts/page.tsx`
 - `app/admin/cash/page.tsx`
 - `app/admin/cylinders/page.tsx`
@@ -42,6 +45,7 @@ En progreso.
 - `app/admin/settings/page.tsx`
 - `app/globals.css`
 - `components/charts/bar-comparison-chart.tsx`
+- `components/dashboard/dashboard-workspace.tsx`
 - `components/dashboard/operations-list.tsx`
 - `components/layout/CompanySelector.tsx`
 - `components/layout/module-placeholder.tsx`
