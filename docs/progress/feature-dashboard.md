@@ -10,11 +10,14 @@ En progreso.
 - Se agrego `/admin/dashboard` como alias funcional para redirects post-login.
 - Se dejaron KPIs demo, bloque de ventas/utilidad, cola operativa y seccion de reportes.
 - Se mejoro el shell para marcar `/admin/dashboard` como dashboard activo.
+- Se crearon `components/charts/bar-comparison-chart.tsx` y `components/dashboard/operations-list.tsx` para sacar piezas reutilizables del dashboard.
 
 ## Archivos tocados
 
 - `app/admin/page.tsx`
 - `app/admin/dashboard/page.tsx`
+- `components/charts/bar-comparison-chart.tsx`
+- `components/dashboard/operations-list.tsx`
 - `components/layout/admin-shell.tsx`
 - `docs/progress/feature-dashboard.md`
 

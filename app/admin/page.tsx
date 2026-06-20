@@ -6,13 +6,14 @@ import {
   FileSpreadsheet,
   Filter,
   PackageCheck,
-  RefreshCw,
   Truck,
   WalletCards,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { BarComparisonChart } from "@/components/charts/bar-comparison-chart";
+import { OperationsList } from "@/components/dashboard/operations-list";
 import { MetricCard } from "@/components/ui/metric-card";
 import { SectionHeading } from "@/components/ui/section-heading";
 
@@ -52,10 +53,10 @@ const metrics = [
 ];
 
 const operations = [
-  ["Cotizaciones por aprobar", "14", "Owner/Admin"],
-  ["Notas de entrega pendientes", "22", "Almacen"],
-  ["Pagos por verificar", "11", "Caja"],
-  ["Importaciones recientes", "3", "Excel 2024"],
+  { label: "Cotizaciones por aprobar", value: "14", area: "Owner/Admin" },
+  { label: "Notas de entrega pendientes", value: "22", area: "Almacen" },
+  { label: "Pagos por verificar", value: "11", area: "Caja" },
+  { label: "Importaciones recientes", value: "3", area: "Excel 2024" },
 ];
 
 const foundations = [
@@ -107,60 +108,15 @@ export default function AdminHome() {
             <Badge tone="info">Dashboard-ready</Badge>
           </CardHeader>
           <CardContent>
-            <div className="grid h-80 grid-cols-12 items-end gap-3 rounded-lg border border-[var(--color-border)] bg-[var(--color-chart-backdrop)] p-4">
-              {[38, 52, 44, 68, 58, 76, 64, 82, 73, 88, 79, 92].map(
-                (height, index) => (
-                  <div className="flex h-full items-end gap-1" key={height + index}>
-                    <div
-                      className="w-full rounded-t-sm bg-[var(--color-brand-orange)]"
-                      style={{ height: `${height}%` }}
-                    />
-                    <div
-                      className="w-full rounded-t-sm bg-[var(--color-brand-yellow)]"
-                      style={{ height: `${Math.max(18, height - 18)}%` }}
-                    />
-                  </div>
-                ),
-              )}
-            </div>
+            <BarComparisonChart
+              primaryLabel="Ventas"
+              secondaryLabel="Utilidad"
+              values={[38, 52, 44, 68, 58, 76, 64, 82, 73, 88, 79, 92]}
+            />
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader>
-            <div>
-              <p className="text-sm font-semibold text-[var(--color-foreground)]">
-                Operacion prioritaria
-              </p>
-              <p className="mt-1 text-sm text-[var(--color-muted-foreground)]">
-                Cola ejecutiva para demo.
-              </p>
-            </div>
-            <Button aria-label="Actualizar operaciones" size="icon" variant="ghost">
-              <RefreshCw size={18} />
-            </Button>
-          </CardHeader>
-          <CardContent className="space-y-3">
-            {operations.map(([label, value, area]) => (
-              <div
-                className="flex items-center justify-between gap-4 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-4 py-3"
-                key={label}
-              >
-                <div className="min-w-0">
-                  <p className="truncate text-sm font-medium text-[var(--color-foreground)]">
-                    {label}
-                  </p>
-                  <p className="mt-1 text-xs text-[var(--color-muted-foreground)]">
-                    {area}
-                  </p>
-                </div>
-                <span className="text-lg font-semibold text-[var(--color-brand-orange)]">
-                  {value}
-                </span>
-              </div>
-            ))}
-          </CardContent>
-        </Card>
+        <OperationsList items={operations} />
       </section>
 
       <section className="grid gap-6 lg:grid-cols-3">

@@ -19,6 +19,7 @@ En progreso.
 - Se agrego navegacion mobile/tablet con panel lateral controlado desde el header.
 - Se crearon componentes reutilizables para tablas y filtros: `DataTable`, `FilterBar` y `FilterField`.
 - Se agrego `/admin/reports` como pantalla base de reportes operativos.
+- Se iniciaron las carpetas de ownership de Salem `components/dashboard/` y `components/charts/`.
 
 ## Archivos tocados
 
@@ -26,6 +27,8 @@ En progreso.
 - `app/admin/page.tsx`
 - `app/admin/dashboard/page.tsx`
 - `app/globals.css`
+- `components/charts/bar-comparison-chart.tsx`
+- `components/dashboard/operations-list.tsx`
 - `components/layout/CompanySelector.tsx`
 - `components/layout/admin-shell.tsx`
 - `components/ui/badge.tsx`
