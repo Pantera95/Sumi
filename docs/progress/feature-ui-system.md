@@ -21,16 +21,29 @@ En progreso.
 - Se agrego `/admin/reports` como pantalla base de reportes operativos.
 - Se iniciaron las carpetas de ownership de Salem `components/dashboard/` y `components/charts/`.
 - Se inicio `components/reports/` con workspace interactivo de reportes.
+- Se agrego `ModulePlaceholder` y pantallas base para las rutas del sidebar administrativo, evitando 404 durante la demo.
 
 ## Archivos tocados
 
+- `app/admin/accounts/page.tsx`
+- `app/admin/cash/page.tsx`
+- `app/admin/cylinders/page.tsx`
+- `app/admin/delivery-notes/page.tsx`
+- `app/admin/imports/page.tsx`
+- `app/admin/inventory/page.tsx`
 - `app/admin/layout.tsx`
 - `app/admin/page.tsx`
 - `app/admin/dashboard/page.tsx`
+- `app/admin/pos/page.tsx`
+- `app/admin/products/page.tsx`
+- `app/admin/quotes/page.tsx`
+- `app/admin/sales/page.tsx`
+- `app/admin/settings/page.tsx`
 - `app/globals.css`
 - `components/charts/bar-comparison-chart.tsx`
 - `components/dashboard/operations-list.tsx`
 - `components/layout/CompanySelector.tsx`
+- `components/layout/module-placeholder.tsx`
 - `components/reports/reports-workspace.tsx`
 - `components/layout/admin-shell.tsx`
 - `components/ui/badge.tsx`
