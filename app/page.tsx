@@ -60,6 +60,12 @@ export default function Home() {
                 >
                   Abrir productos
                 </a>
+                <a
+                  href="/inventario"
+                  className="rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white/90"
+                >
+                  Ver inventario
+                </a>
                 <span className="rounded-full bg-white/10 px-4 py-2 text-sm text-white/90">
                   Demo objetivo: viernes 19
                 </span>
