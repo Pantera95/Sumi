@@ -16,6 +16,9 @@ En progreso.
 - Se implemento `CompanySelector` presentacional/controlado en `components/layout/CompanySelector.tsx`.
 - Se integro el selector en el header del `AdminShell` con empresas demo y soporte de vista consolidada.
 - Se agrego `/admin/dashboard` como alias temporal de `/admin` para evitar 404 en redirects post-login mientras llega `feature/dashboard`.
+- Se agrego navegacion mobile/tablet con panel lateral controlado desde el header.
+- Se crearon componentes reutilizables para tablas y filtros: `DataTable`, `FilterBar` y `FilterField`.
+- Se agrego `/admin/reports` como pantalla base de reportes operativos.
 
 ## Archivos tocados
 
@@ -28,17 +31,19 @@ En progreso.
 - `components/ui/badge.tsx`
 - `components/ui/button.tsx`
 - `components/ui/card.tsx`
+- `components/ui/data-table.tsx`
+- `components/ui/filter-bar.tsx`
 - `components/ui/metric-card.tsx`
 - `components/ui/section-heading.tsx`
+- `app/admin/reports/page.tsx`
 - `lib/utils.ts`
 - `package.json`
 - `package-lock.json`
 
 ## Que falta
 
-- Crear variantes de tabla, formularios y filtros reutilizables.
+- Crear variantes de formularios reutilizables.
 - Integrar graficos reales en `feature/dashboard`.
-- Agregar estados mobile interactivos del sidebar cuando se conecte comportamiento de menu.
 - Reemplazar datos demo del selector por `companies`, `activeCompanyId` y `onChange` desde auth/company-selector cuando Greeg exponga el server contract.
 
 ## Dependencias
@@ -52,4 +57,4 @@ En progreso.
 
 ## Siguiente paso
 
-- Avanzar con tabla/filtros reutilizables dentro de `feature/ui-system` o pasar a `feature/dashboard` cuando esta base se integre en `dev`, manteniendo `/` como landing hasta la integracion con auth.
+- Avanzar con formularios reutilizables o conectar dashboard/reportes a contratos de datos cuando esta base se integre en `dev`.

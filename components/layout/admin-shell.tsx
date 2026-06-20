@@ -56,7 +56,36 @@ type AdminShellProps = {
 export function AdminShell({ children }: AdminShellProps) {
   const pathname = usePathname();
   const [activeCompanyId, setActiveCompanyId] = useState<string | null>("sumigases");
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const canSeeConsolidated = true;
+
+  const renderNavigation = () => (
+    <nav className="flex-1 space-y-1 overflow-y-auto px-3 py-4">
+      {navigation.map((item) => {
+        const isActive =
+          item.href === "/admin"
+            ? pathname === item.href || pathname === "/admin/dashboard"
+            : pathname.startsWith(item.href);
+        const Icon = item.icon;
+
+        return (
+          <Link
+            className={cn(
+              "flex h-10 items-center gap-3 rounded-md px-3 text-sm font-medium text-slate-300 transition-colors hover:bg-white/8 hover:text-white",
+              isActive &&
+                "bg-white text-[var(--color-brand-navy)] hover:bg-white hover:text-[var(--color-brand-navy)]",
+            )}
+            href={item.href}
+            key={item.href}
+            onClick={() => setIsMobileNavOpen(false)}
+          >
+            <Icon size={18} className="shrink-0" />
+            <span className="truncate">{item.label}</span>
+          </Link>
+        );
+      })}
+    </nav>
+  );
 
   return (
     <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]">
@@ -80,30 +109,7 @@ export function AdminShell({ children }: AdminShellProps) {
           </div>
         </div>
 
-        <nav className="flex-1 space-y-1 overflow-y-auto px-3 py-4">
-          {navigation.map((item) => {
-            const isActive =
-              item.href === "/admin"
-                ? pathname === item.href
-                : pathname.startsWith(item.href);
-            const Icon = item.icon;
-
-            return (
-              <Link
-                className={cn(
-                  "flex h-10 items-center gap-3 rounded-md px-3 text-sm font-medium text-slate-300 transition-colors hover:bg-white/8 hover:text-white",
-                  isActive &&
-                    "bg-white text-[var(--color-brand-navy)] hover:bg-white hover:text-[var(--color-brand-navy)]",
-                )}
-                href={item.href}
-                key={item.href}
-              >
-                <Icon size={18} className="shrink-0" />
-                <span className="truncate">{item.label}</span>
-              </Link>
-            );
-          })}
-        </nav>
+        {renderNavigation()}
 
         <div className="border-t border-white/10 p-4">
           <div className="rounded-lg border border-yellow-400/25 bg-yellow-400/10 p-3 text-yellow-50">
@@ -120,12 +126,44 @@ export function AdminShell({ children }: AdminShellProps) {
         </div>
       </aside>
 
+      {isMobileNavOpen ? (
+        <div className="fixed inset-0 z-40 lg:hidden">
+          <button
+            aria-label="Cerrar navegacion"
+            className="absolute inset-0 bg-slate-950/70"
+            onClick={() => setIsMobileNavOpen(false)}
+            type="button"
+          />
+          <aside className="relative flex h-full w-[min(22rem,88vw)] flex-col border-r border-[var(--color-border)] bg-[var(--color-sidebar)] shadow-2xl shadow-black/30">
+            <div className="flex h-16 items-center gap-3 border-b border-white/10 px-5">
+              <div className="flex h-10 w-10 items-center justify-center rounded-md bg-[var(--color-brand-orange)] text-sm font-bold text-white">
+                SC
+              </div>
+              <div className="min-w-0">
+                <p className="truncate text-sm font-semibold text-white">SumiControl</p>
+                <p className="truncate text-xs text-slate-300">Admin operativo</p>
+              </div>
+            </div>
+            <div className="border-b border-white/10 px-4 py-4 sm:hidden">
+              <CompanySelector
+                activeCompanyId={activeCompanyId}
+                canSeeConsolidated={canSeeConsolidated}
+                companies={demoCompanies}
+                onChange={setActiveCompanyId}
+              />
+            </div>
+            {renderNavigation()}
+          </aside>
+        </div>
+      ) : null}
+
       <div className="lg:pl-72">
         <header className="sticky top-0 z-20 border-b border-[var(--color-border)] bg-[var(--color-topbar)] backdrop-blur">
           <div className="flex h-16 items-center gap-3 px-4 md:px-6">
             <Button
               aria-label="Abrir navegacion"
               className="lg:hidden"
+              onClick={() => setIsMobileNavOpen(true)}
               size="icon"
               variant="secondary"
             >
