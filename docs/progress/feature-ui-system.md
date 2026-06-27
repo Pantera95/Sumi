@@ -2,7 +2,7 @@
 
 ## Estado
 
-En progreso.
+Integrado en `main`.
 
 ## Que se hizo
 
@@ -67,9 +67,10 @@ En progreso.
 
 ## Que falta
 
-- Crear variantes de formularios reutilizables.
 - Integrar graficos reales en `feature/dashboard`.
 - Reemplazar datos demo del selector por `companies`, `activeCompanyId` y `onChange` desde auth/company-selector cuando Greeg exponga el server contract.
+- Conectar pantallas base de modulos a funcionalidades reales.
+- Revisar visualmente produccion despues de cada deploy.
 
 ## Dependencias
 
@@ -82,4 +83,4 @@ En progreso.
 
 ## Siguiente paso
 
-- Avanzar con formularios reutilizables o conectar dashboard/reportes a contratos de datos cuando esta base se integre en `dev`.
+- Avanzar productos/inventario admin o conectar dashboard/reportes a contratos de datos cuando Greeg entregue auth/company selector/modelos.

@@ -2,7 +2,7 @@
 
 ## Estado
 
-En progreso.
+UI demo integrada en `main`.
 
 ## Que se hizo
 
@@ -39,4 +39,4 @@ En progreso.
 
 ## Siguiente paso
 
-- Crear contrato de datos para reportes o conectar con importaciones cuando exista la rama correspondiente.
+- Crear contrato de datos para reportes y conectar con importaciones cuando exista la rama correspondiente.

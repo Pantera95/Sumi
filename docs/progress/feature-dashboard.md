@@ -2,7 +2,7 @@
 
 ## Estado
 
-En progreso.
+UI demo integrada en `main`.
 
 ## Que se hizo
 
@@ -42,4 +42,4 @@ En progreso.
 
 ## Siguiente paso
 
-- Consolidar el contrato de datos del dashboard o conectar la rama con `feature/auth-roles` cuando entre a `dev`.
+- Consolidar el contrato de datos del dashboard y conectar con auth/company selector cuando Greeg lo entregue.
