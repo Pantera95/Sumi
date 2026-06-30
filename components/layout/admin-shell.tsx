@@ -44,20 +44,34 @@ const navigation = [
   { label: "Configuracion", href: "/admin/settings", icon: Settings },
 ];
 
-const demoCompanies: CompanyOption[] = [
-  { id: "sumigases", name: "Sumigases", slug: "sumigases" },
-  { id: "sudematin", name: "Sudematin", slug: "sudematin" },
-];
-
 type AdminShellProps = {
   children: ReactNode;
+  user?: {
+    fullName: string;
+    role: string;
+  } | null;
+  companies?: CompanyOption[];
+  activeCompanyId?: string | null;
+  canSeeConsolidated?: boolean;
 };
 
-export function AdminShell({ children }: AdminShellProps) {
+export function AdminShell({
+  children,
+  user,
+  companies = [],
+  activeCompanyId: initialActiveCompanyId = null,
+  canSeeConsolidated = false,
+}: AdminShellProps) {
   const pathname = usePathname();
-  const [activeCompanyId, setActiveCompanyId] = useState<string | null>("sumigases");
+  const fallbackCompanies: CompanyOption[] = [
+    { id: "sumigases", name: "Sumigases", slug: "sumigases" },
+    { id: "sudematin", name: "Sudematin", slug: "sudematin" },
+  ];
+  const availableCompanies = companies.length > 0 ? companies : fallbackCompanies;
+  const [activeCompanyId, setActiveCompanyId] = useState<string | null>(
+    initialActiveCompanyId ?? availableCompanies[0]?.id ?? null,
+  );
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-  const canSeeConsolidated = true;
 
   const renderNavigation = () => (
     <nav className="flex-1 space-y-1 overflow-y-auto px-3 py-4">
@@ -148,7 +162,7 @@ export function AdminShell({ children }: AdminShellProps) {
               <CompanySelector
                 activeCompanyId={activeCompanyId}
                 canSeeConsolidated={canSeeConsolidated}
-                companies={demoCompanies}
+                companies={availableCompanies}
                 onChange={setActiveCompanyId}
               />
             </div>
@@ -187,7 +201,7 @@ export function AdminShell({ children }: AdminShellProps) {
                 <CompanySelector
                   activeCompanyId={activeCompanyId}
                   canSeeConsolidated={canSeeConsolidated}
-                  companies={demoCompanies}
+                  companies={availableCompanies}
                   onChange={setActiveCompanyId}
                 />
               </div>
@@ -199,10 +213,10 @@ export function AdminShell({ children }: AdminShellProps) {
               <button className="flex h-10 items-center gap-3 rounded-md border border-[var(--color-border)] bg-[var(--color-surface)] px-3 text-left text-sm">
                 <span className="hidden md:block">
                   <span className="block font-semibold text-[var(--color-foreground)]">
-                    Salem
+                    {user?.fullName ?? "Salem"}
                   </span>
                   <span className="block text-xs text-[var(--color-muted-foreground)]">
-                    Owner UI
+                    {user?.role ?? "Owner UI"}
                   </span>
                 </span>
                 <ChevronDown
