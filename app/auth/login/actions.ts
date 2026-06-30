@@ -1,6 +1,8 @@
 "use server";
 
 import { authenticateWithAvailableSource } from "@/lib/auth/authenticate";
+import { getPostLoginRoute } from "@/lib/auth/post-login";
+import { getCurrentSessionUser } from "@/lib/auth/session";
 import { loginSchema } from "@/lib/auth/login-schema";
 import { redirect } from "next/navigation";
 
@@ -36,5 +38,6 @@ export async function authenticateUser(
     };
   }
 
-  redirect("/admin/dashboard");
+  const session = await getCurrentSessionUser();
+  redirect(getPostLoginRoute(session));
 }

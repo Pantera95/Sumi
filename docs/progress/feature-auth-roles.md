@@ -15,6 +15,8 @@ Integracion en progreso sobre `feature/integrate-auth-core`.
 - Se extendio el snapshot de sesion para exponer `companies[]`, `activeCompanyId` y `defaultCompany`.
 - Se conecto el `AdminShell` a la sesion cuando existe, manteniendo fallback demo visual.
 - El login exitoso redirige a `/admin/dashboard`.
+- Se agrego resolver `getPostLoginRoute` por rol.
+- Se protegieron las rutas `/admin/*` con `requireAuthenticatedSession`.
 
 ## Archivos tocados
 
@@ -36,7 +38,7 @@ Integracion en progreso sobre `feature/integrate-auth-core`.
 
 - Definir y aplicar guards reales por ruta admin.
 - Persistir cambio de empresa activa desde el selector.
-- Crear resolver formal de post-login por rol (`getPostLoginRoute`).
+- Refinar resolver post-login con deep-links `returnTo` y persistencia de ultima empresa.
 - Unificar matriz de permisos entre seed y runtime para evitar drift.
 - Expandir permisos para aprobaciones de negocio: venta sin stock, descuentos, pagos, anulaciones y tasa especial.
 - Evaluar cifrado reversible para contrasenas visibles en vez de texto plano.
@@ -52,8 +54,8 @@ Integracion en progreso sobre `feature/integrate-auth-core`.
 
 - Sin `DATABASE_URL`, el login usa fallback demo firmado, no sesion persistida.
 - El selector de empresa aun cambia solo estado visual en cliente.
-- Las rutas admin aun no bloquean acceso por rol.
+- Las rutas admin ya requieren sesion, pero aun no filtran permisos modulo por modulo.
 
 ## Siguiente paso
 
-- Agregar guards por ruta admin y resolver post-login por rol, o conectar persistencia de empresa activa.
+- Agregar permisos por ruta admin y conectar persistencia de empresa activa.

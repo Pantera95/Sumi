@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 import { AdminShell } from "@/components/layout/admin-shell";
-import { getCurrentSessionUser } from "@/lib/auth/session";
+import { requireAuthenticatedSession } from "@/lib/auth/server-guards";
 
 export default async function AdminLayout({ children }: { children: ReactNode }) {
-  const session = await getCurrentSessionUser();
+  const session = await requireAuthenticatedSession();
 
   return (
     <AdminShell
